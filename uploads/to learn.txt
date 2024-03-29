@@ -1,0 +1,8 @@
+DDOSS ATTACK
+EVIL TWIN ATTACK
+RANSOMWARE ATTACK
+DNS SPOOFING ATTACK
+Trojan Attack (7issan tirwada)
+Man in the middle ATTACK (MITM)
+BotNet Attack 
+Drive By Downloads Attack

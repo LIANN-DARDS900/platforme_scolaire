@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+  <title>Ajouter un Devoir</title>
+  <style>
+      
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .title {
+      text-align: center;
+      color: #a70000;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .form-container {
+      border-radius: 8px;
+      background-color: #D0E6F5;
+      padding: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .form-field {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    
+    .form-button {
+      background-color: #4B0082;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .form-button:hover {
+      background-color: #9370DB;
+    }
+  
+
+    .file-input {
+      display: none;
+    }
+
+    .file-label {
+      background-color: #4B0082;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .file-label:hover {
+      background-color: #9370DB;
+    }
+
+    .file-name {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body style="background-image: url('background.jpg'); background-size: cover; background-position: center;">
+  <div class="container">
+    <h1 class="title">Ajouter un Devoir</h1>
+    
+    <div class="form-container">
+      <form action="traitement_devoir.php" method="POST" enctype="multipart/form-data">
+        <label class="form-label" for="nom_devoir">Nom du Devoir:</label>
+        <input class="form-field" type="text" id="nom_devoir" name="nom_devoir" required>
+        
+        <label class="form-label" for="annee_scolaire">Année Scolaire:</label>
+        <select class="form-select" id="annee_scolaire" name="annee_scolaire" required>
+          <option value="">Sélectionnez une année</option>
+          <option value="Tronc Commun">Tronc Commun</option>
+          <option value="Première Année Bac">Première Année Bac</option>
+          <option value="Deuxième Année Bac">Deuxième Année Bac</option>
+        </select>
+        
+        <label class="form-label" for="branche">Branche:</label>
+        <select class="form-select" id="branche" name="branche" required>
+          <option value="">Sélectionnez une branche</option>
+          <option value="Science Math">Science Math</option>
+          <option value="Science Ex">Science Ex</option>
+          <option value="Lettre">Lettre</option>
+          <option value="Science">Science</option>
+        </select>
+        
+        <input class="file-input" type="file" id="fichier" name="fichier">
+        <label class="file-label" for="fichier">Importer</label>
+        <span class="file-name"></span>
+        
+        <button class="form-button" type="submit">Ajouter</button>
+        <a href="NazihProjet.html" class="form-button">Retour</a>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Afficher le nom du fichier sélectionné dans l'étiquette
+    const fileInput = document.getElementById('fichier');
+    const fileNameLabel = document.querySelector('.file-name');
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        fileNameLabel.textContent = file.name;
+      } else {
+        fileNameLabel.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>

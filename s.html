@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+  <style>
+    /* CSS styles for the menu and other elements go here */
+
+    .menu {
+      margin-bottom: 20px;
+      margin-top: 20px; /* Add margin-top to move the menu up */
+    }
+
+    .menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      background-color: #4B0082;
+      display: flex;
+    }
+
+    .menu ul li {
+      position: relative;
+    }
+
+    .menu ul li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+
+    .menu ul li:hover > a {
+      background-color: #9370DB;
+    }
+
+    .menu ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #9370DB;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    .menu ul li:hover > ul {
+      display: block;
+    }
+
+    .menu ul li ul li {
+      display: block;
+      margin: 5px 0;
+    }
+
+    .menu ul li ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Styles for the hamburger icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 3px 0;
+    }
+
+    /* Show the hamburger icon on small screens only */
+    @media screen and (max-width: 768px) {
+      .menu ul {
+        display: none;
+      }
+
+      .menu ul.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 10px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Other CSS styles for cards and title go here */
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .card {
+      flex-basis: calc(33.33% - 20px);
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card-back {
+      background-color: #9370DB;
+      transform: rotateY(180deg);
+      color: #fff;
+    }
+
+    /* Add your own content and styles for the card */
+    .card-front {
+      background-color: #D0E6F5;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-description {
+      font-size: 16px;
+    }
+
+    .title-container {
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      text-align: center;
+      color: #154360;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title-container" style="background-image: url('banner.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+      <h1 class="title">Nazih Platform</h1>
+    </div>
+
+    <!-- Hamburger icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Actual Menu -->
+    <div class="menu">
+      <ul>
+        <li>
+          <a href="#">Menu Item 1</a>
+        </li>
+        <li>
+          <a href="#">Menu Item 2</a>
+        </li>
+        <li>
+          <a href="#">Menu Item 3</a>
+          <ul>
+            <li><a href="#">Submenu Item 1</a></li>
+            <li><a href="#">Submenu Item 2</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Menu Item 4</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-container">
+      <!-- Product Cards go here -->
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu ul');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
